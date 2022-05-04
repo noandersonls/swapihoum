@@ -19,6 +19,7 @@ const StyledCard = styled.div`
   width: 100%;
   flex-grow: 0;
   flex-basis: 50%;
+  height: 430px;
 
 
   .cardcontainer {
@@ -69,22 +70,33 @@ const StyledCard = styled.div`
 `;
 
 
-const HeroCard = ({onClick}) => {
+const HeroCard = ({onClick, item}) => {
+  const {
+    name, 
+    gravity, 
+    orbital_period: orbitalPeriod, 
+    diameter, 
+    population,
+    climate,
+  } = item;
+
   return (
     <StyledCard onClick={onClick}>
       <div className='cardcontainer'>
         <div className='cardcontainer--image'>
-          <img src={Planet}/>
+          <img alt={`Image of the planet ${name} from Star Wars`} src={Planet}/>
         </div>
         <div className='cardcontainer--data'>
           <div>
-            <h3>Name: </h3>
-            <h4>Terrain:</h4>
-            <p>Diameter:</p>
+            <h3>Name: {name}</h3>
+            <h4>Gravity: {gravity}</h4>
+            <p>Climate: {climate}</p>
+            <p>Orbital Period: {orbitalPeriod}</p>
+            <p>Diameter: {diameter}</p>
           </div>
           <hr className='cardcontainer--separator'/>
           <div>
-            <p>Population:</p>
+            <p>Population: {population}</p>
           </div>
         </div>
       </div>

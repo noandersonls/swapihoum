@@ -14,27 +14,19 @@ const StyledCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
   ${(props) => props.theme.breakpoints.md} {
 
   }
 `;
 
-const CardContainer = props => {
+const CardContainer = ({ data }) => {
   const navigate = useNavigate();
   const handleOnClick = useCallback(() => navigate('/faqs', {replace: true}), [navigate]);
 
   return (
     <StyledCardContainer>
-      <HeroCard onClick={handleOnClick}/>
-      <HeroCard/>
-      <HeroCard/>
-      <HeroCard/>
-      <HeroCard/>
-      <HeroCard/>
-      <HeroCard/>
-      <HeroCard/>
-      <HeroCard/>
-      <HeroCard/>
+      {data?.map((item) => <HeroCard key={`${item.name}${item.diameter}`} onClick={handleOnClick} item={item}/>)}
     </StyledCardContainer>
   )
 };

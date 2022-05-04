@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { ThemeProvider } from 'styled-components';
+import { AppProvider } from './context';
 
 import Main from './views/Main'
 import Faqs from './views/Faqs'
@@ -12,10 +13,12 @@ import { BREAKPOINTS, COLORS } from './constants';
 function App() {
   return (
     <ThemeProvider theme={{ colors: COLORS, breakpoints: BREAKPOINTS }}>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="faqs" element={<Details />} />
-      </Routes>
+      <AppProvider>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="faqs" element={<Details />} />
+        </Routes>
+      </AppProvider>
     </ThemeProvider>
   );
 }

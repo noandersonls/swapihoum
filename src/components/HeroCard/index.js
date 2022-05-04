@@ -20,6 +20,10 @@ const StyledCard = styled.div`
   flex-grow: 0;
   flex-basis: 50%;
   height: 430px;
+  transition: all .5s ease-in-out;
+  &:hover { 
+    transform: scale(1.01); 
+  }
 
 
   .cardcontainer {
@@ -78,10 +82,12 @@ const HeroCard = ({onClick, item}) => {
     diameter, 
     population,
     climate,
+    url,
   } = item;
+  const planetId = url.split('/')[url.split('/').length-2]; 
 
   return (
-    <StyledCard onClick={onClick}>
+    <StyledCard onClick={() => onClick(planetId)}>
       <div className='cardcontainer'>
         <div className='cardcontainer--image'>
           <img alt={`Image of the planet ${name} from Star Wars`} src={Planet}/>

@@ -16,7 +16,7 @@ function App() {
       <AppProvider>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="faqs" element={<Details />} />
+          <Route path='/details/:id' exact element={<Details/>} />
         </Routes>
       </AppProvider>
     </ThemeProvider>

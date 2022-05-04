@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
 export default function usePlanets({ results, count, next, previous }){
-  // console.log(results, count)
   const [planets, setPlanets] = useState(results)
   const [planetsQty, setPlanetsQty] = useState(count)
   const [error,setError] = useState(null)
@@ -15,5 +14,5 @@ export default function usePlanets({ results, count, next, previous }){
     }
   }, [results])
 
-  return { planets, planetsQty, loading }
+  return { planets, planetsQty, loading, }
 }

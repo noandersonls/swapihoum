@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 const StyledCardContainer = styled.div`
   padding-top: 5rem;
-
   width: 100%;
   margin: 0;
   position: relative;
@@ -22,7 +21,7 @@ const StyledCardContainer = styled.div`
 
 const CardContainer = ({ data }) => {
   const navigate = useNavigate();
-  const handleOnClick = useCallback(() => navigate('/faqs', {replace: true}), [navigate]);
+  const handleOnClick = useCallback((id) => navigate(`/details/${id}`, {replace: true}), [navigate]);
 
   return (
     <StyledCardContainer>

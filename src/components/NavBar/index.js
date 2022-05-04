@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import logo from '../../logo.png';
+import Logo from '../../logo.png';
 
 
 const StyledNav = styled.header`
@@ -13,7 +13,8 @@ const StyledNav = styled.header`
   top: 0px;
   height: 4.5rem;
   padding: 8px 70px;
-  position: static;
+  position: fixed;
+  z-index: 1100;
   box-shadow: rgb(38 50 56 / 15%) 0px 4px 15px;
 
   .navcontainer {
@@ -59,7 +60,7 @@ const NavBar = props => {
         <div>
           <a href='/' className='navcontainer--logo'>
             <span>SWAPI x</span>
-            <img src={logo}/>
+            <img src={Logo}/>
           </a>
         </div>
         <div className='navcontainer--items'>

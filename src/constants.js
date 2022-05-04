@@ -15,11 +15,13 @@ export const BREAKPOINTS = {
   max: `${sizes.xlg}`,
 };
 
+// Houm Palette Colors
 export const COLORS = {
   background: 'white',
   primary: '#FF452B',
 };
 
+// For future theme with defined px
 export const SIZES = [
   8,
   16,

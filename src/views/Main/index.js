@@ -1,10 +1,15 @@
 import React from 'react'
 import NavBar from '../../components/NavBar';
+import CardContainer from '../../components/CardContainer';
+
 
 
 const Main = props => {
   return (
-    <NavBar/>
+    <>
+      <NavBar/>
+      <CardContainer/>
+    </>
   )
 };
 

@@ -84,8 +84,6 @@ const Showcase = ({ planetId }) => {
     detail: notFound,
   } = planet || {};
 
-  console.log(123, loading)
-
   return (
     <StyledShowcase>
       <Button title='Back Home' onClick={goHome}/>

@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import HeroCard from '../HeroCard';
+import Paginator from '../../views/Paginator';
 import NotFound from '../NotFound';
 import Button from '../Button';
 
@@ -16,6 +17,12 @@ const StyledCardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
+  height: 75vh;
+  overflow: scroll;
+
+  position: fixed;
+  overflow: scroll
+
   .notFound {
     display: flex;
     flex-direction: column;
@@ -28,21 +35,25 @@ const StyledCardContainer = styled.div`
 `;
 
 const CardContainer = ({ data }) => {
+  const { results: planetsList, count, prev, next } = data;
   const navigate = useNavigate();
   const handleOnClick = useCallback((id) => navigate(`/details/${id}`, {replace: true}), [navigate]);
 
   return (
-    <StyledCardContainer>
-      {
-        data.length ?
-        data.map((item) => <HeroCard key={`${item.name}${item.diameter}`} onClick={handleOnClick} item={item}/>) :
-        <div className='notFound'>
-          <NotFound message='Sorry, there is no planet named like that'/>
-          <Button title='Back Home' onClick={() => navigate(0)}/>
-          <span>Or make a new search!</span>
-        </div>
-      }
-    </StyledCardContainer>
+    <>
+      <StyledCardContainer>
+        {
+          planetsList.length ?
+            planetsList.map((planet) => <HeroCard key={`${planet.name}${planet.diameter}`} onClick={handleOnClick} item={planet}/>) :
+              <div className='notFound'>
+                <NotFound message='Sorry, there is no planet named like that'/>
+                <Button title='Back Home' onClick={() => navigate(0)}/>
+                <span>Or make a new search!</span>
+              </div>
+        }
+      </StyledCardContainer>
+      { !!planetsList.length && <Paginator count={count} onNext={next} onPrev={prev}/> }
+    </>
   )
 };
 

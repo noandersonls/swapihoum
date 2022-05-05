@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useMemo, useState } from "react"
 import { getPlanet } from '../api';
 
 
@@ -11,7 +11,7 @@ export default function usePlanet(id) {
     setPlanet(foundPlanet)
   }
 
-  useEffect(() => {
+  useMemo(() => {
     if (!planet) {  
       findPlanet();
       setLoading(true)

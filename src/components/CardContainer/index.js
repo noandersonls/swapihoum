@@ -6,7 +6,7 @@ import HeroCard from '../HeroCard';
 import { useNavigate } from 'react-router-dom';
 
 const StyledCardContainer = styled.div`
-  padding-top: 5rem;
+  padding-top: 0.5rem;
   width: 100%;
   margin: 0;
   position: relative;
@@ -25,7 +25,11 @@ const CardContainer = ({ data }) => {
 
   return (
     <StyledCardContainer>
-      {data?.map((item) => <HeroCard key={`${item.name}${item.diameter}`} onClick={handleOnClick} item={item}/>)}
+      {
+        data.length ?
+        data.map((item) => <HeroCard key={`${item.name}${item.diameter}`} onClick={handleOnClick} item={item}/>) :
+        <h1>No planets found!</h1>
+      }
     </StyledCardContainer>
   )
 };

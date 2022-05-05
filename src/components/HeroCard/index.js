@@ -3,13 +3,15 @@ import styled from 'styled-components'
 
 import Planet from  '../../images/planet.png';
 
+import Population from  '../../images/population.svg';
+
 const StyledCard = styled.div`
   cursor: pointer;
   height: 100%;
   margin: 0px auto;
   position: relative;
-  max-width: 260px;
-  min-width: 260px;
+  max-width: 320px;
+  min-width: 280px;
   font-size: 12px;
   font-weight: 300;
   text-align: left;
@@ -63,8 +65,14 @@ const StyledCard = styled.div`
     border: none;
     height: 1px;
     margin: 0;
+    margin-bottom: 4px;
     flex-shrink: 0;
     background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .cardcontainer--footer {
+    display: flex;
+    align-items: center;
   }
 
 
@@ -101,8 +109,9 @@ const HeroCard = ({onClick, item}) => {
             <p>Diameter: {diameter}</p>
           </div>
           <hr className='cardcontainer--separator'/>
-          <div>
-            <p>Population: {population}</p>
+          <div className='cardcontainer--footer'>
+            <img alt='population icon' src={Population}/>
+            <span> Population: {population}</span>
           </div>
         </div>
       </div>

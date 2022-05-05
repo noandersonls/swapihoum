@@ -19,6 +19,7 @@ export const BREAKPOINTS = {
 export const COLORS = {
   background: 'white',
   primary: '#FF452B',
+  secondary: '#F7F8FC'
 };
 
 // For future theme with defined px

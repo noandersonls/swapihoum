@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 
 export default function usePlanets({ results, count, next, previous }){
   const [planets, setPlanets] = useState(results)
   const [planetsQty, setPlanetsQty] = useState(count)
-  const [error,setError] = useState(null)
-  const [loading,setLoading] = useState(true)
 
   useEffect(() => {
-    if (results) {
-      setLoading(false)
+    if (count) { 
       setPlanets(results);
       setPlanetsQty(count);
+    } else {
+      setPlanets({})
+      setPlanetsQty(0);
     }
-  }, [results])
+  }, [results, count])
 
-  return { planets, planetsQty, loading, }
+  return { planets, planetsQty }
 }

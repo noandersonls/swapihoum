@@ -113,7 +113,7 @@ const NavBar = props => {
         <img onClick={handleShowMenu} src={Menu}/>
         <div className='navcontainer--items'>
           <a className='navcontainer--items-login' href='/login'><span>Login</span></a>
-          <a href='/'><span>FAQs</span></a>
+          <a href='/faqs'><span>FAQs</span></a>
         </div>
       </div>
       {
@@ -121,7 +121,7 @@ const NavBar = props => {
         <StyledMenuMobile>
           <a href='/login'><span>Login</span></a>
           <hr/>
-          <a href='/'><span>FAQs</span></a>
+          <a href='/faqs'><span>FAQs</span></a>
         </StyledMenuMobile>
         }
     </StyledNav>

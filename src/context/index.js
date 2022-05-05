@@ -14,15 +14,15 @@ export const AppProvider = ({ children }) => {
       setLoading(true)
       getPlanetsSearch(planetQuery)
         .then(res => { 
+          setPlanets(res)
           setLoading(false)
-          setPlanets(res) 
         });
     } else {
       setLoading(true)
       getPlanets()
-        .then(res => { 
+        .then(res => {
+          setPlanets(res)
           setLoading(false)
-          setPlanets(res) 
         });
     }
   },[planetQuery]);

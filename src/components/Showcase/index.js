@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
-import Button from '../Button/Index';
+import NotFound from '../NotFound';
+import Button from '../Button';
 import Loader from '../Loader';
 
 import Planet from  '../../images/planet.png';
@@ -35,7 +36,8 @@ const StyledDetails = styled.div`
   box-shadow: rgb(38 50 56 / 15%) 0px 4px 15px;
   margin: 16px;
   width: 100%;
-  height: 540px;
+  height: 100%;
+  min-height: 280px;
 
   .details {
     display: flex;
@@ -79,7 +81,10 @@ const Showcase = ({ planetId }) => {
     population,
     climate,
     terrain,
+    detail: notFound,
   } = planet || {};
+
+  console.log(123, loading)
 
   return (
     <StyledShowcase>
@@ -87,23 +92,26 @@ const Showcase = ({ planetId }) => {
       <StyledDetails>
         { loading ? 
           <Loader/> :
-          <div className='details'>
-            <div>
-              <h3 className='details--title'>{name}</h3>
-              <img className='details--image' alt={`Image of the planet ${name} from Star Wars`} src={Planet}/>
-              <hr className='details--separator'/>
+          (
+            notFound ? <NotFound message='404 - Sorry! This planet was destroyed by the Galactic Empire!'/> :
+            <div className='details'>
+              <div>
+                <h3 className='details--title'>{name}</h3>
+                <img className='details--image' alt={`Image of the planet ${name} from Star Wars`} src={Planet}/>
+                <hr className='details--separator'/>
+              </div>
+              <div>
+                <p>Gravity: {gravity}</p>
+                <p>Climate: {climate}</p>
+                <p>Orbital Period: {orbitalPeriod}</p>
+                <p>Diameter: {diameter}</p>
+                <p>Rotation: {rotation}</p>
+                <p>Surface Water: {surfaceWater}</p>
+                <p>Population: {population}</p>
+                <p>Terrain: {terrain}</p>
+              </div>
             </div>
-            <div>
-              <p>Gravity: {gravity}</p>
-              <p>Climate: {climate}</p>
-              <p>Orbital Period: {orbitalPeriod}</p>
-              <p>Diameter: {diameter}</p>
-              <p>Rotation: {rotation}</p>
-              <p>Surface Water: {surfaceWater}</p>
-              <p>Population: {population}</p>
-              <p>Terrain: {terrain}</p>
-            </div>
-          </div>
+          )
         }
       </StyledDetails>
     </StyledShowcase>

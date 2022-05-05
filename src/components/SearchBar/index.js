@@ -21,8 +21,10 @@ const StyledSearch = styled.div`
     border-radius: 2rem;
     min-height: fit-content;
     justify-content: space-between;
-    width: 60%;
     height: 2rem;
+    padding: 5px;
+    width: 80%;
+    max-width: 350px;
 
     > img {
       cursor: pointer;
@@ -45,22 +47,35 @@ const StyledSearch = styled.div`
   }
 
   ${(props) => props.theme.breakpoints.md} {
-
+    justify-content: flex-start;
+    margin-left: 20px;
+    .container {
+      height: 3rem;
+      width: 400px;
+      max-width: 50%;
+    }
   }
 `;
 
 const SearchBar = ({ onChange, placeholder, value, onSearch }) => {
+
+  const handleSearch = () => {
+    if (value) {
+      onSearch()
+    }
+  }
+
   return (
     <StyledSearch>
         <div className='container'>
-          <img onClick={onSearch} src={Search}/>
+          <img onClick={handleSearch} src={Search}/>
           <label 
             className='searchbar--label'
             id="input-label"
           >
             Swapihoum Search
           </label>
-          <input 
+          <input
             onChange={(e) => onChange(e.target.value)}
             type="text" 
             name="searchbar" 

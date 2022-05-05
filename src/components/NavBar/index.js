@@ -68,7 +68,10 @@ const StyledMenuMobile = styled.div`
   flex-direction: column;
   background-color: white;
   align-items: center;
-  box-shadow: rgb(38 50 56 / 15%) 0px 3px 0px 0px;
+  box-shadow: rgb(38 50 56 / 15%) 0px 2px 0px 0px;
+  position: fixed;
+  left: 0;
+  right: 0;
   > a {
     padding: 8px;
     font-size: 14px;
@@ -110,7 +113,7 @@ const NavBar = props => {
         <img onClick={handleShowMenu} src={Menu}/>
         <div className='navcontainer--items'>
           <a className='navcontainer--items-login' href='/login'><span>Login</span></a>
-          <a href='faqs'><span>FAQs</span></a>
+          <a href='/'><span>FAQs</span></a>
         </div>
       </div>
       {
@@ -118,7 +121,7 @@ const NavBar = props => {
         <StyledMenuMobile>
           <a href='/login'><span>Login</span></a>
           <hr/>
-          <a href='faqs'><span>FAQs</span></a>
+          <a href='/'><span>FAQs</span></a>
         </StyledMenuMobile>
         }
     </StyledNav>

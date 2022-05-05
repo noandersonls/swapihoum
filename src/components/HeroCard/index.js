@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Planet from  '../../images/planet.png';
-
 import Population from  '../../images/population.svg';
 
 const StyledCard = styled.div`
@@ -10,8 +9,8 @@ const StyledCard = styled.div`
   height: 100%;
   margin: 0px auto;
   position: relative;
-  max-width: 320px;
-  min-width: 280px;
+  max-width: 380px;
+  min-width: 340px;
   font-size: 12px;
   font-weight: 300;
   text-align: left;
@@ -58,7 +57,7 @@ const StyledCard = styled.div`
   }
 
   .cardcontainer--data {
-    padding: 12px;
+    padding: 1rem;
   }
 
   .cardcontainer--separator {

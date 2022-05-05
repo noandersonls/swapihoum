@@ -5,16 +5,17 @@ import SearchBar from '../../components/SearchBar';
 import Loader from '../../components/Loader';
 
 import { AppContext } from '../../context';
-import  usePlanets  from '../../hooks/usePlanets'
 
 const Main = props => {
   const [search, setSearch] = useState('')
   const data = useContext(AppContext)
   const { planets: planetsContext, setPlanetQuery, loading} = data;
-  const { planets, planetsQty } = usePlanets(planetsContext);
+  const planetsList = planetsContext.results;
 
   const handleSearch = () => {
-    setPlanetQuery(search)
+    if (search) {
+      setPlanetQuery(search)
+    }
   }
 
   return (
@@ -29,7 +30,7 @@ const Main = props => {
             placeholder='Search a planet here!'
             value={search}
           />
-          <CardContainer data={planets} isLoading={loading}/>
+          <CardContainer data={planetsList}/>
         </>
       }
     </>

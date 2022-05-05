@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { AppProvider } from './context';
 
 import Main from './views/Main'
-import Faqs from './views/Faqs'
+import Login from './views/Login'
 import Details from './views/Details'
 import './App.css';
 
@@ -17,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path='/details/:id' exact element={<Details/>} />
+          <Route path='/login' element={<Login/>} />
         </Routes>
       </AppProvider>
     </ThemeProvider>

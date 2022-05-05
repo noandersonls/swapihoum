@@ -1,6 +1,7 @@
+// usePlanets hooks example
 import { useEffect, useState, useCallback } from "react"
 
-export default function usePlanets({ results, count, next, previous }){
+export default function usePlanets({ results, count, next, previous, loading}){
   const [planets, setPlanets] = useState(results)
   const [planetsQty, setPlanetsQty] = useState(count)
 
@@ -12,7 +13,7 @@ export default function usePlanets({ results, count, next, previous }){
       setPlanets({})
       setPlanetsQty(0);
     }
-  }, [results, count])
+  }, [results, count, loading])
 
   return { planets, planetsQty }
 }

@@ -35,7 +35,7 @@ const StyledCardContainer = styled.div`
 `;
 
 const CardContainer = ({ data }) => {
-  const { results: planetsList, count, prev, next } = data;
+  const { results: planetsList, count, prev, next, setPageToGo, pageToGo} = data;
   const navigate = useNavigate();
   const handleOnClick = useCallback((id) => navigate(`/details/${id}`, {replace: true}), [navigate]);
 
@@ -52,7 +52,7 @@ const CardContainer = ({ data }) => {
               </div>
         }
       </StyledCardContainer>
-      { !!planetsList.length && <Paginator count={count} onNext={next} onPrev={prev}/> }
+      { !!planetsList.length && <Paginator onSetPage={setPageToGo} pageToGo={pageToGo} count={count} next={next} prev={prev}/> }
     </>
   )
 };

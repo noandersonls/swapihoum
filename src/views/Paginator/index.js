@@ -10,7 +10,7 @@ const StyledPaginator = styled.div`
   position: fixed;
   width: 100%;
   overflow: hidden;
-  height: 90px;
+  height: 70px;
   bottom: 0;
 
   .paginator--page {
@@ -31,7 +31,7 @@ const StyledPaginator = styled.div`
 `;
 
 
-const Paginator = ({ count, onNext, onPrev }) => {
+const Paginator = ({ count, onSetPage, prev, next, pageToGo}) => {
   const [ pages, setPages ] = useState([])
   const [ pageSelected, setPageSelected ] = useState(1)
 
@@ -40,26 +40,36 @@ const Paginator = ({ count, onNext, onPrev }) => {
   const isFirstPage = pageSelected === 1;
 
   useEffect(() => {
+      pageToGo && setPageSelected(pageToGo)
+  }, [pageToGo])
+
+  useEffect(() => {
     const pagesArr = [...Array(pagesQty+1).keys()].slice(1);
     setPages(pagesArr);
   }, [count])
 
+  const handlePagination = (value) => {
+    const pageId = Number(value.match(/=\s*(.*)$/)[1]);
+    setPageSelected(pageId)
+    onSetPage(pageId)
+  }
+
   return (
     <StyledPaginator>
-      <Button disabled={isFirstPage} onClick={onPrev} title='Previous'/>
+      <Button disabled={isFirstPage} onClick={() => handlePagination(prev)} title='Previous'/>
       {pages.map(number => {
         return (
           <div
             key={number}
             id={number}
             className={'paginator--page ' + (number === pageSelected ? 'paginator--page-active' : null)}
-            onClick={(e) => console.log(e)}
+            onClick={(e) => onSetPage(Number(e.target.id))}
           >
             {number}
           </div>
         );
       })}
-      <Button disabled={isLastPage} onClick={onNext} title='Next'/>
+      <Button disabled={isLastPage} onClick={() => handlePagination(next)} title='Next'/>
     </StyledPaginator>
   )
 }

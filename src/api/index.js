@@ -10,10 +10,16 @@ const items = {
   "starships": "/starships/",
   "vehicles": "/vehicles/",
   "search": "?search=",
+  "page": "/?page=",
 }
 
 const getPlanets = async () => {
   const resp = await fetch(`${baseURL}${items.planets}`).then(response => response.json());
+  return resp;
+}
+
+const getPlanetsPage = async (selectedPage) => {
+  const resp = await fetch(`${baseURL}${items.planets}${items.page}${selectedPage}`).then(response => response.json());
   return resp;
 }
 
@@ -32,4 +38,10 @@ const getSpecies = async () => {
   return resp;
 }
 
-export { getPlanets, getPlanet, getPlanetsSearch, getSpecies };
+export { 
+  getPlanets, 
+  getPlanet, 
+  getPlanetsSearch, 
+  getPlanetsPage, 
+  getSpecies 
+};

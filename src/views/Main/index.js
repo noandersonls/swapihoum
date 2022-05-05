@@ -9,7 +9,7 @@ import { AppContext } from '../../context';
 const Main = props => {
   const [search, setSearch] = useState('')
   const data = useContext(AppContext)
-  const { planets: planetsContext, setPlanetQuery, loading} = data;
+  const { planets: planetsContext, setPlanetQuery, setPageToGo, pageToGo, loading} = data;
 
   const handleSearch = () => {
     if (search) {
@@ -29,7 +29,7 @@ const Main = props => {
             placeholder='Search a planet here!'
             value={search}
           />
-          <CardContainer data={planetsContext}/>
+          <CardContainer data={{ ...planetsContext, setPageToGo, pageToGo }}/>
         </>
       }
     </>

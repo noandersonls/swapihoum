@@ -107,7 +107,7 @@ const NavBar = props => {
         <div>
           <a href='/' className='navcontainer--logo'>
             <span>SWAPI x</span>
-            <img src={Logo}/>
+            <img alt='Swapihoum Logo' src={Logo}/>
           </a>
         </div>
         <img onClick={handleShowMenu} src={Menu}/>
@@ -123,7 +123,7 @@ const NavBar = props => {
           <hr/>
           <a href='/faqs'><span>FAQs</span></a>
         </StyledMenuMobile>
-        }
+      }
     </StyledNav>
   )
 };

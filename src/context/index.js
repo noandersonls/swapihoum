@@ -24,7 +24,6 @@ export const AppProvider = ({ children }) => {
       setLoading(true)
       getPlanetsPage(pageToGo)
       .then(res => { 
-        console.log(333, res)
         setPlanets(res)
         setLoading(false)
       });
@@ -44,7 +43,7 @@ export const AppProvider = ({ children }) => {
 
   return(
     <Provider value={{planets, setPlanets, setPlanetQuery, setPageToGo, pageToGo, loading}}>
-        {children}
+      {children}
     </Provider>
   );
 }

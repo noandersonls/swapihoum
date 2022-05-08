@@ -42,7 +42,7 @@ const StyledSearch = styled.div`
     }
   }
 
-  .searchbar--label {
+  .searchbar__label {
     display: none;
   }
 
@@ -76,7 +76,7 @@ const SearchBar = ({ onChange, placeholder, value, onSearch }) => {
         <div className='container'>
           <img onClick={handleSearch} src={Search}/>
           <label 
-            className='searchbar--label'
+            className='searchbar__label'
             id="input-label"
           >
             Swapihoum Search

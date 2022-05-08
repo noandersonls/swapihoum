@@ -9,7 +9,7 @@ import { ReactComponent as WarningLogo } from '../../images/warning.svg';
 const StyledFaqs = styled.div`
   margin-top: 6rem;
 
-  .faqs--container {
+  .faqs__container {
     margin: 2rem;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ const StyledFaqs = styled.div`
     align-items: center;
     justify-content: center;
 
-    .faqs--container {
+    .faqs__container {
       width: 60%;
       height: auto;
     }
@@ -50,7 +50,7 @@ const Faqs = props => {
     <>
       <NavBar/>
       <StyledFaqs>
-        <div className='faqs--container'>
+        <div className='faqs__container'>
           <WarningLogo/>
           <h1>Requerimientos Houm Challenge</h1>
           <h2> - Usar una API pública que te permita obtener una lista de recursos y cada uno de estos recursos tenga variados atributos. Aquí la idea es utilizar una API lo suficientemente compleja para poder mostrar todo tu potencial visualizando información de los recursos en formato de hero cards.</h2>

@@ -37,7 +37,7 @@ const StyledCard = styled.div`
     border-radius: 12px;
   }
 
-  .cardcontainer--info {
+  .cardcontainer__info {
     width: fit-content;
     border: 1px solid;
     display: flex;
@@ -46,7 +46,7 @@ const StyledCard = styled.div`
     border-radius: 100px;
   }
 
-  .cardcontainer--image {
+  .cardcontainer__image {
     display: flex;
     justify-content: center;
     
@@ -56,11 +56,11 @@ const StyledCard = styled.div`
     }
   }
 
-  .cardcontainer--data {
+  .cardcontainer__data {
     padding: 1rem;
   }
 
-  .cardcontainer--separator {
+  .cardcontainer__separator {
     border: none;
     height: 1px;
     margin: 0;
@@ -69,7 +69,7 @@ const StyledCard = styled.div`
     background-color: rgba(0, 0, 0, 0.12);
   }
 
-  .cardcontainer--footer {
+  .cardcontainer__footer {
     display: flex;
     align-items: center;
   }
@@ -97,10 +97,10 @@ const HeroCard = ({onClick, item}) => {
   return (
     <StyledCard onClick={() => onClick(planetId)}>
       <div className='cardcontainer'>
-        <div className='cardcontainer--image'>
+        <div className='cardcontainer__image'>
           <img alt={`Planet ${name} from Star Wars`} src={Planet}/>
         </div>
-        <div className='cardcontainer--data'>
+        <div className='cardcontainer__data'>
           <div>
             <h3>Name: {name}</h3>
             <h4>Gravity: {gravity}</h4>
@@ -108,8 +108,8 @@ const HeroCard = ({onClick, item}) => {
             <p>Orbital Period: {orbitalPeriod}</p>
             <p>Diameter: {diameter}</p>
           </div>
-          <hr className='cardcontainer--separator'/>
-          <div className='cardcontainer--footer'>
+          <hr className='cardcontainer__separator'/>
+          <div className='cardcontainer__footer'>
             <img alt='population icon' src={Population}/>
             <span> Population: {population}</span>
           </div>

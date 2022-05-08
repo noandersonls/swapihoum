@@ -46,17 +46,17 @@ const StyledDetails = styled.div`
     align-items: center;
   }
 
-  .details--title {
+  .details__title {
     text-align: center;
     font-size: 20px;
     font-weight: 300;
   }
 
-  .details--image {
+  .details__image {
     width: 200px;
   }
 
-  .details--separator {
+  .details__separator {
     border: none;
     height: 1px;
     margin: 0;
@@ -94,9 +94,9 @@ const Showcase = ({ planetId }) => {
             notFound ? <NotFound message='404 - Sorry! This planet was destroyed by the Galactic Empire!'/> :
             <div className='details'>
               <div>
-                <h3 className='details--title'>{name}</h3>
-                <img className='details--image' alt={`Planet ${name} from Star Wars`} src={Planet}/>
-                <hr className='details--separator'/>
+                <h3 className='details__title'>{name}</h3>
+                <img className='details__image' alt={`Planet ${name} from Star Wars`} src={Planet}/>
+                <hr className='details__separator'/>
               </div>
               <div>
                 <p>Gravity: {gravity}</p>

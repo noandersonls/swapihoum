@@ -24,7 +24,7 @@ const StyledNav = styled.header`
     justify-content: space-between;
   }
 
-  .navcontainer--logo {
+  .navcontainer__logo {
     font-size: 18px;
     color: ${(props) => props.theme.colors.primary};
     display: flex;
@@ -35,11 +35,11 @@ const StyledNav = styled.header`
     }
   }
 
-  .navcontainer--items {
+  .navcontainer__items {
     display: none;
   }
 
-  .navcontainer--items-login {
+  .navcontainer__items-login {
     color: ${(props) => props.theme.colors.primary};
   }
 
@@ -52,7 +52,7 @@ const StyledNav = styled.header`
       }
     }
 
-    .navcontainer--items {
+    .navcontainer__items {
       display: initial;
       > a {
         padding: 8px;
@@ -105,14 +105,14 @@ const NavBar = props => {
     <StyledNav>
       <div className='navcontainer'>
         <div>
-          <a href='/' className='navcontainer--logo'>
+          <a href='/' className='navcontainer__logo'>
             <span>SWAPI x</span>
             <img alt='Swapihoum Logo' src={Logo}/>
           </a>
         </div>
         <img onClick={handleShowMenu} src={Menu}/>
-        <div className='navcontainer--items'>
-          <a className='navcontainer--items-login' href='/login'><span>Login</span></a>
+        <div className='navcontainer__items'>
+          <a className='navcontainer__items-login' href='/login'><span>Login</span></a>
           <a href='/faqs'><span>FAQs</span></a>
         </div>
       </div>

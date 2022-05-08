@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+Este proyecto fue creado con [Create React App](https://github.com/facebookincubator/create-react-app).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Descripción
 
-## Available Scripts
+Proyecto prueba de lista de planetas utilizando la API Swapi, consta de una vista con planetas mostrados en Hero Cards, un buscador, un paginador que controla las llamadas por páginas a la API y una vista de detalle por cada Hero Card.
+También vistas dummy de prueba como FAQs y Login. 
 
-In the project directory, you can run:
+- Fue construido solamente con React, creando componentes y estilos desde cero con styled-components.
+- Creado con un enfoque Mobile First para asegurar las vistas responsive.
+- Cada componenten cuenta con CSS individual dentro de cada file.
+- Se utilizó Fetch para los HTTP resquest.
+- Se integra RTL para testing.
+- Se utiliza Vercel para el deployment - https://swapihoum.vercel.app/
 
-### `npm start`
+## TO - DO
+- Implement Husky with Linters.
+- Linters
+- 404 Component to Default View.
+- Revisar Imports: Librerias, Componentes, Utils
+- WARNING ICON FAQS
+- CHECK UNUSED IMPORTS
+- CONSOLE>LOGS
+- FIX BEM ELEMENTS -- TO __
+- PAGINATOR to VIEW
+- CARDCONTAINER TO CARDSCONTAINER
+- FIX ALL IMG ALTS
+- REACT HELMET
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Organización
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Swapihoum React App está organizada de la siguiente manera en su carpeta source:
 
-### `npm test`
+Carpeta | Descripción
+--- | ---
+**api** | Relacionado a las funciones para llamar a la API Swapi.
+**components** | Carpeta de todos los componentes utilizados en Swapihoum.
+**context** | Relacionado al estado interno de Swapihoum.
+**hooks** | React custom hooks que sirven de utilidad en la app.
+**views** | Contiene todas las vistas al usuario que integran Swapihoum.
+**images** | Relacionado a los iconos e imagenes que se muestran en la app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Vistas
 
-### `npm run build`
+Swapihoum cuenta con las siguientes vistas para el usuario:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Vistas | Descripción
+--- | ---
+**Main** | Es la vista principal que cuenta con el la barra superior, la barra de búsqueda y el contenedor de herocards.
+**Details** | Se encarga de renderizar un planeta seleccionado al momento de entrar desde un herocard en Main.
+**Faqs** | Vista de Faqs Dummy - Se muestran requerimientos del challenge Houm.
+**Login** | Vista dummy de registro o acceso a Swapihoum.
+**NotFound** | Vista de registro no encontrado para direcciones que no se encuentran en Swapihoum.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Componentes
 
-### `npm run eject`
+Los componentes son funcionales, la idea general es que la mayoría sea reutilizable, es pensado a futuro organizar reutilizables en una carpeta aparte.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Componente | Descripción
+--- | ---
+**Button.js** | Botón estilizado reusable.
+**CardContainer.js** | Componente encargado de mosotrar todos los herocards con el paginador.
+**HeroCard.js** | Tarjeta para renderizar los detalles de un registro en el Main view.
+**Loader.js** | Componente para utilizar en los estados de carga de Swapihoum.
+**NavBar.js** | Barra superior de navegación de Swapihoum.
+**Searchbar.js** | Barra de búsqueda funcional.
+**Showcase.js** | Permite mostrar el detalle de cada registro que se accede desde Main view.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Métodos en App.js 
 
-## Learn More
+Los siguientes métodos se encargan de manejar la data a través de la aplicación, agregar el contacto, realizar la busqueda, establecer el estado, eliminar al contacto, abrir el modal y manejar el paginado.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Método | Descripción
+--- | ---
+**componentDidMount** | Llama a  **getInfo**  obtiene el listado de personas desde la API, y los setea en el estado del componente.
+**getInfo** | Se encarga de hacer el request a la API para obtener los users, verificando si existe una query para realizar una busqueda.
+**ComponentDidUpdate** | Se ejecuta después de que la actualización ocurre para comparar si la query de la busqueda ha cambiado con respecto al prevState y así llamar a getInfo()
+**onDeleteUser** | Recibe un id de usuario para eliminarlo a través la llamada Delete de Axios.
+**toggleModal** | Alterna entre True o False el Modal en el state para mostrar/cerrarlo.
+**onSubmit** | Recibe un nuevo usuario y lo crea a través de un POST de Axios.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---

@@ -1,7 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
-
-
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
   cursor: pointer;
@@ -38,12 +36,12 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({title, onClick, disabled}) => {  
+function Button({ title, onClick, disabled }) {
   return (
     <StyledButton onClick={onClick} disabled={disabled}>
-      <span>{title}</span>
+      <span>{ title }</span>
     </StyledButton>
-  )
-};
+  );
+}
 
 export default Button;

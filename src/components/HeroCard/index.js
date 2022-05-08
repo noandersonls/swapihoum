@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import Planet from  '../../images/planet.png';
-import Population from  '../../images/population.svg';
+import Planet from '../../images/planet.png';
+import Population from '../../images/population.svg';
 
 const StyledCard = styled.div`
   cursor: pointer;
@@ -80,43 +80,60 @@ const StyledCard = styled.div`
   }
 `;
 
-
-const HeroCard = ({onClick, item}) => {
+function HeroCard({ onClick, item }) {
   const {
-    name, 
-    gravity, 
-    orbital_period: orbitalPeriod, 
-    diameter, 
+    name,
+    gravity,
+    orbital_period: orbitalPeriod,
+    diameter,
     population,
     climate,
     url,
   } = item;
-  const planetId = url.split('/')[url.split('/').length-2]; 
-
+  const planetId = url.split('/')[url.split('/').length - 2];
 
   return (
     <StyledCard onClick={() => onClick(planetId)}>
-      <div className='cardcontainer'>
-        <div className='cardcontainer__image'>
-          <img alt={`Planet ${name} from Star Wars`} src={Planet}/>
+      <div className="cardcontainer">
+        <div className="cardcontainer__image">
+          <img alt={`Planet ${name} from Star Wars`} src={Planet} />
         </div>
-        <div className='cardcontainer__data'>
+        <div className="cardcontainer__data">
           <div>
-            <h3>Name: {name}</h3>
-            <h4>Gravity: {gravity}</h4>
-            <p>Climate: {climate}</p>
-            <p>Orbital Period: {orbitalPeriod}</p>
-            <p>Diameter: {diameter}</p>
+            <h3>
+              Name:
+              {name}
+            </h3>
+            <h4>
+              Gravity:
+              {gravity}
+            </h4>
+            <p>
+              Climate:
+              {climate}
+            </p>
+            <p>
+              Orbital Period:
+              {orbitalPeriod}
+            </p>
+            <p>
+              Diameter:
+              {diameter}
+            </p>
           </div>
-          <hr className='cardcontainer__separator'/>
-          <div className='cardcontainer__footer'>
-            <img alt='population icon' src={Population}/>
-            <span> Population: {population}</span>
+          <hr className="cardcontainer__separator" />
+          <div className="cardcontainer__footer">
+            <img alt="population icon" src={Population} />
+            <span>
+              {' '}
+              Population:
+              {population}
+            </span>
           </div>
         </div>
       </div>
     </StyledCard>
-  )
-};
+  );
+}
 
 export default HeroCard;

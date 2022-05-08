@@ -4,45 +4,48 @@ import { getPlanets, getPlanetsSearch, getPlanetsPage } from '../api';
 export const AppContext = createContext();
 const { Provider } = AppContext;
 
-export const AppProvider = ({ children }) => {
+export function AppProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [planets, setPlanets] = useState({});
   const [pageToGo, setPageToGo] = useState(null);
   const [planetQuery, setPlanetQuery] = useState(null);
 
   useMemo(() => {
-    setLoading(true)
+    setLoading(true);
     getPlanets()
-      .then(res => {
-        setPlanets(res)
-        setLoading(false)
+      .then((res) => {
+        setPlanets(res);
+        setLoading(false);
       });
-  },[]);
+  }, []);
 
   useMemo(() => {
     if (pageToGo) {
-      setLoading(true)
+      setLoading(true);
       getPlanetsPage(pageToGo)
-      .then(res => { 
-        setPlanets(res)
-        setLoading(false)
-      });
+        .then((res) => {
+          setPlanets(res);
+          setLoading(false);
+        });
     }
-  },[pageToGo]);
+  }, [pageToGo]);
 
   useMemo(() => {
     if (planetQuery) {
-      setLoading(true)
+      setLoading(true);
       getPlanetsSearch(planetQuery)
-        .then(res => { 
-          setPlanets(res)
-          setLoading(false)
+        .then((res) => {
+          setPlanets(res);
+          setLoading(false);
         });
     }
-  },[planetQuery]);
+  }, [planetQuery]);
 
-  return(
-    <Provider value={{planets, setPlanets, setPlanetQuery, setPageToGo, pageToGo, loading}}>
+  return (
+    <Provider value={{
+      planets, setPlanets, setPlanetQuery, setPageToGo, pageToGo, loading,
+    }}
+    >
       {children}
     </Provider>
   );

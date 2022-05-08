@@ -1,24 +1,23 @@
-import { useMemo, useState } from "react"
+import { useMemo, useState } from 'react';
 import { getPlanet } from '../api';
 
-
 export default function usePlanet(id) {
-  const [planet, setPlanet] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [planet, setPlanet] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const findPlanet = async () => {
     const foundPlanet = await getPlanet(id);
-    setPlanet(foundPlanet)
-  }
+    setPlanet(foundPlanet);
+  };
 
   useMemo(() => {
-    if (!planet) {  
+    if (!planet) {
       findPlanet();
-      setLoading(true)
+      setLoading(true);
     } else {
-      setLoading(false)
+      setLoading(false);
     }
   }, [id, planet]);
 
-  return { planet, loading }
+  return { planet, loading };
 }

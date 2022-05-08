@@ -18,9 +18,9 @@ También vistas dummy de prueba como FAQs y Login.
 - Una version develop tiene deploy en: - https://swapihoum-develop.vercel.app/
 
 ## TO - DO:
-- Implement Husky Pre-Commit with Eslint.
 - Every component styles has media queries in order to extend the responsive design.
 - Paginator Component: To handle pages maximum to show.
+- Add more tests.
 ---
 
 ### Organización

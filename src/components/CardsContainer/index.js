@@ -1,15 +1,15 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import HeroCard from '../HeroCard';
-import Paginator from '../../views/Paginator';
 import NotFound from '../NotFound';
 import Button from '../Button';
 import Loader from '../Loader';
+import Paginator from '../../components/Paginator';
 
 // New Router hook for navigation
 import { useNavigate } from 'react-router-dom';
 
-const StyledCardContainer = styled.div`
+const StyledCardsContainer = styled.div`
   padding-top: 0.5rem;
   width: 100%;
   margin: 0;
@@ -34,7 +34,7 @@ const StyledCardContainer = styled.div`
   }
 `;
 
-const CardContainer = ({ data }) => {
+const CardsContainer = ({ data }) => {
   const { results: planetsList, count, previous, next, setPageToGo, pageToGo, loading} = data;
   const navigate = useNavigate();
   const handleOnClick = useCallback((id) => navigate(`/details/${id}`, {replace: true}), [navigate]);
@@ -44,7 +44,7 @@ const CardContainer = ({ data }) => {
       {
         loading ?
         <Loader/> :
-        <StyledCardContainer>
+        <StyledCardsContainer>
           {
             planetsList.length ?
               planetsList.map((planet) => <HeroCard key={`${planet.name}${planet.diameter}`} onClick={handleOnClick} item={planet}/>) :
@@ -54,11 +54,11 @@ const CardContainer = ({ data }) => {
                   <span>Or make a new search!</span>
                 </div>
           }
-        </StyledCardContainer>
+        </StyledCardsContainer>
       }
       { !!planetsList?.length && <Paginator onSetPage={setPageToGo} pageToGo={pageToGo} count={count} next={next} prev={previous}/> }
     </>
   )
 };
 
-export default CardContainer;
+export default CardsContainer;

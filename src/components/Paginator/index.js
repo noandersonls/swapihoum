@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Button from '../../components/Button'
+import Button from '../Button'
 import styled from 'styled-components'
 
 const StyledPaginator = styled.div`
@@ -14,13 +14,13 @@ const StyledPaginator = styled.div`
   height: 70px;
   bottom: 0;
 
-  .paginator--page {
+  .paginator__page {
     cursor: pointer;
     font-weight: 200;
     font-size: 14px;
   }
 
-  .paginator--page-active {
+  .paginator__page-active {
     color: ${(props) => props.theme.colors.primary};
     font-weight: bold;
     cursor:  pointer;
@@ -62,7 +62,7 @@ const Paginator = ({ count, onSetPage, prev, next, pageToGo }) => {
           <div
             key={number}
             id={number}
-            className={'paginator--page ' + (number === pageSelected ? 'paginator--page-active' : null)}
+            className={'paginator__page ' + (number === pageSelected ? 'paginator__page-active' : null)}
             onClick={() => onSetPage(+number)}
           >
             {number}

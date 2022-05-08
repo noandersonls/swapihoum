@@ -65,6 +65,12 @@ const SearchBar = ({ onChange, placeholder, value, onSearch }) => {
     }
   }
 
+  const handleEnter = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch()
+    }
+  }
+
   return (
     <StyledSearch>
         <div className='container'>
@@ -77,6 +83,7 @@ const SearchBar = ({ onChange, placeholder, value, onSearch }) => {
           </label>
           <input
             onChange={(e) => onChange(e.target.value)}
+            onKeyDown={handleEnter}
             type="text" 
             name="searchbar" 
             id="searchbar" 

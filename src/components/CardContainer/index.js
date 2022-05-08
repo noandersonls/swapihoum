@@ -4,6 +4,7 @@ import HeroCard from '../HeroCard';
 import Paginator from '../../views/Paginator';
 import NotFound from '../NotFound';
 import Button from '../Button';
+import Loader from '../Loader';
 
 // New Router hook for navigation
 import { useNavigate } from 'react-router-dom';
@@ -19,11 +20,10 @@ const StyledCardContainer = styled.div`
 
   height: 75vh;
   overflow: scroll;
-
   position: fixed;
-  overflow: scroll
+  overflow: scroll;
 
-  .notFound {
+  .nofound {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,24 +35,28 @@ const StyledCardContainer = styled.div`
 `;
 
 const CardContainer = ({ data }) => {
-  const { results: planetsList, count, prev, next, setPageToGo, pageToGo} = data;
+  const { results: planetsList, count, previous, next, setPageToGo, pageToGo, loading} = data;
   const navigate = useNavigate();
   const handleOnClick = useCallback((id) => navigate(`/details/${id}`, {replace: true}), [navigate]);
 
   return (
     <>
-      <StyledCardContainer>
-        {
-          planetsList.length ?
-            planetsList.map((planet) => <HeroCard key={`${planet.name}${planet.diameter}`} onClick={handleOnClick} item={planet}/>) :
-              <div className='notFound'>
-                <NotFound message='Sorry, there is no planet named like that'/>
-                <Button title='Back Home' onClick={() => navigate(0)}/>
-                <span>Or make a new search!</span>
-              </div>
-        }
-      </StyledCardContainer>
-      { !!planetsList.length && <Paginator onSetPage={setPageToGo} pageToGo={pageToGo} count={count} next={next} prev={prev}/> }
+      {
+        loading ?
+        <Loader/> :
+        <StyledCardContainer>
+          {
+            planetsList.length ?
+              planetsList.map((planet) => <HeroCard key={`${planet.name}${planet.diameter}`} onClick={handleOnClick} item={planet}/>) :
+                <div className="nofound">
+                  <NotFound message='Sorry, there is no planet named like that'/>
+                  <Button title='Back Home' onClick={() => navigate(0)}/>
+                  <span>Or make a new search!</span>
+                </div>
+          }
+        </StyledCardContainer>
+      }
+      { !!planetsList?.length && <Paginator onSetPage={setPageToGo} pageToGo={pageToGo} count={count} next={next} prev={previous}/> }
     </>
   )
 };

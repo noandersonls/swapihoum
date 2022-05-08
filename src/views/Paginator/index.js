@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const StyledPaginator = styled.div`
   display: flex;
   justify-content: space-evenly;
+  box-shadow: rgb(38 50 56 / 15%) 0px 4px 15px;
   align-items: center;
   background-color: ${(props) => props.theme.colors.background};
   position: fixed;
@@ -49,6 +50,7 @@ const Paginator = ({ count, onSetPage, prev, next, pageToGo}) => {
   }, [count])
 
   const handlePagination = (value) => {
+    console.log(value)
     const pageId = Number(value.match(/=\s*(.*)$/)[1]);
     setPageSelected(pageId)
     onSetPage(pageId)

@@ -86,7 +86,7 @@ const Showcase = ({ planetId }) => {
 
   return (
     <StyledShowcase>
-      <Button title='Back Home' onClick={goHome}/>
+      <Button title='Go Back' onClick={goHome}/>
       <StyledDetails>
         { loading ? 
           <Loader/> :

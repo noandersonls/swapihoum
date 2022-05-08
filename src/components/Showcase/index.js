@@ -63,6 +63,11 @@ const StyledDetails = styled.div`
     flex-shrink: 0;
     background-color: rgba(0, 0, 0, 0.12);
   }
+
+  ${(props) => props.theme.breakpoints.md} {
+    width: 50%;
+    max-width: 500px;
+  }
 `;
 
 
@@ -94,7 +99,7 @@ const Showcase = ({ planetId }) => {
             notFound ? <NotFound message='404 - Sorry! This planet was destroyed by the Galactic Empire!'/> :
             <div className='details'>
               <div>
-                <h3 className='details__title'>{name}</h3>
+                <h3 className='details--title'>{name}</h3>
                 <img className='details__image' alt={`Planet ${name} from Star Wars`} src={Planet}/>
                 <hr className='details__separator'/>
               </div>

@@ -1,6 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
-
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   .loader {
@@ -32,13 +31,12 @@ const StyledDiv = styled.div`
   }
 `;
 
-
-const Loader = () => {
+function Loader() {
   return (
     <StyledDiv>
-        <span className="loader"></span>
+      <span className="loader" />
     </StyledDiv>
-  )
-};
+  );
+}
 
 export default Loader;

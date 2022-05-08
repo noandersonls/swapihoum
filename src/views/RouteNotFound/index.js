@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import NotFound from '../../components/NotFound';
 
-const RouteNotFound = () => {
+function RouteNotFound() {
   return (
-    <NotFound message='404 - Sorry, Route destroyed by the Galactic Empire'/>
-  )
-};
+    <NotFound message="404 - Sorry, Route destroyed by the Galactic Empire" />
+  );
+}
 
 export default RouteNotFound;

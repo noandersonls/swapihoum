@@ -1,13 +1,13 @@
-import React, { useCallback } from 'react'
-import styled from 'styled-components'
+import React, { useCallback } from 'react';
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import HeroCard from '../HeroCard';
 import NotFound from '../NotFound';
 import Button from '../Button';
 import Loader from '../Loader';
-import Paginator from '../../components/Paginator';
+import Paginator from '../Paginator';
 
 // New Router hook for navigation
-import { useNavigate } from 'react-router-dom';
 
 const StyledCardsContainer = styled.div`
   padding-top: 0.5rem;
@@ -34,31 +34,37 @@ const StyledCardsContainer = styled.div`
   }
 `;
 
-const CardsContainer = ({ data }) => {
-  const { results: planetsList, count, previous, next, setPageToGo, pageToGo, loading} = data;
+function CardsContainer({ data }) {
+  const {
+    results: planetsList, count, previous, next, setPageToGo, pageToGo, loading,
+  } = data;
   const navigate = useNavigate();
-  const handleOnClick = useCallback((id) => navigate(`/details/${id}`, {replace: true}), [navigate]);
+  const handleOnClick = useCallback((id) => navigate(`/details/${id}`, { replace: true }), [navigate]);
 
   return (
     <>
       {
-        loading ?
-        <Loader/> :
-        <StyledCardsContainer>
-          {
-            planetsList.length ?
-              planetsList.map((planet) => <HeroCard key={`${planet.name}${planet.diameter}`} onClick={handleOnClick} item={planet}/>) :
+        loading
+          ? <Loader />
+          : (
+            <StyledCardsContainer>
+              {
+            planetsList.length
+              ? planetsList.map((planet) => <HeroCard key={`${planet.name}${planet.diameter}`} onClick={handleOnClick} item={planet} />)
+              : (
                 <div className="nofound">
-                  <NotFound message='Sorry, there is no planet named like that'/>
-                  <Button title='Back Home' onClick={() => navigate(0)}/>
+                  <NotFound message="Sorry, there is no planet named like that" />
+                  <Button title="Back Home" onClick={() => navigate(0)} />
                   <span>Or make a new search!</span>
                 </div>
+              )
           }
-        </StyledCardsContainer>
+            </StyledCardsContainer>
+          )
       }
-      { !!planetsList?.length && <Paginator onSetPage={setPageToGo} pageToGo={pageToGo} count={count} next={next} prev={previous}/> }
+      { !!planetsList?.length && <Paginator onSetPage={setPageToGo} pageToGo={pageToGo} count={count} next={next} prev={previous} /> }
     </>
-  )
-};
+  );
+}
 
 export default CardsContainer;

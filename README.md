@@ -5,18 +5,22 @@ This project was created using [Create React App](https://github.com/facebookinc
 Proyecto prueba de lista de planetas utilizando la API Swapi, consta de una vista con planetas mostrados en Hero Cards, un buscador, un paginador que controla las llamadas por páginas a la API y una vista de detalle por cada Hero Card.
 También vistas dummy de prueba como FAQs y Login. 
 
-- Fue construido solamente con React, creando componentes y estilos desde cero con styled-components siguiendo la convención de BEM.
+- Fue construido solamente con React, creando componentes y estilos desde cero con styled-components siguiendo la convención de BEM: http://getbem.com/
+- El proyecto sigue una guía de desarrollo AirBnB: https://github.com/airbnb/javascript
+- La guía de AirBnB está configurada en el proyecto mediante Eslint para mantener un mismo estilo de desarrollo y prevenir errores.
+- El control de versiones apuesta por un modelo Git Flow con convenciones de Conventional Commits: https://www.conventionalcommits.org/en/v1.0.0/
+- Utiliza React Helmet para el control de la data en el Head del documento: https://github.com/nfl/react-helmet
 - Creado con un enfoque Mobile First para asegurar las vistas responsive.
 - Cada componenten cuenta con CSS individual dentro de cada file.
 - Se utilizó Fetch para los HTTP resquest.
 - Se integra RTL para testing.
 - Se utiliza Vercel para el deployment - https://swapihoum.vercel.app/
+- Una version develop tiene deploy en: - https://swapihoum-develop.vercel.app/
 
 ## TO - DO:
-- Implement Husky with Linters.
-- Linter.
-- Integrate REACT HELMET.
+- Implement Husky Pre-Commit with Eslint.
 - Every component styles has media queries in order to extend the responsive design.
+- Paginator Component: To handle pages maximum to show.
 ---
 
 ### Organización

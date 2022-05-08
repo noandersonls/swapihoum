@@ -1,8 +1,8 @@
 // DEMO PAGE
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 import NavBar from '../../components/NavBar';
 import Button from '../../components/Button';
-import styled from 'styled-components'
 
 import { ReactComponent as LoginLogo } from '../../images/login.svg';
 
@@ -28,17 +28,17 @@ const StyledLogin = styled.div`
   }
 `;
 
-const Login = () => {
+function Login() {
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <StyledLogin>
-        <LoginLogo/>
-        <Button title='Login with Houm' onClick={() => console.log('gotcha! :) visit https://houm.com/cl for more')}/>
+        <LoginLogo />
+        <Button title="Login with Houm" onClick={() => console.log('gotcha! :) visit https://houm.com/cl for more')} />
         <span>Register</span>
       </StyledLogin>
     </>
-  )
-};
+  );
+}
 
 export default Login;

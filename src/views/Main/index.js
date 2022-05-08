@@ -1,34 +1,38 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react';
 import NavBar from '../../components/NavBar';
-import CardContainer from '../../components/CardContainer';
+import CardsContainer from '../../components/CardsContainer';
 import SearchBar from '../../components/SearchBar';
 
 import { AppContext } from '../../context';
 
-const Main = () => {
-  const [search, setSearch] = useState('')
-  const data = useContext(AppContext)
-  const { planets: planetsContext, setPlanetQuery, setPageToGo, pageToGo, loading } = data;
-
+function Main() {
+  const [search, setSearch] = useState('');
+  const data = useContext(AppContext);
+  const {
+    planets: planetsContext, setPlanetQuery, setPageToGo, pageToGo, loading,
+  } = data;
 
   const handleSearch = () => {
     if (search) {
-      setPlanetQuery(search)
+      setPlanetQuery(search);
     }
-  }
+  };
 
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <SearchBar
         onChange={setSearch}
         onSearch={handleSearch}
-        placeholder='Search a planet here!'
+        placeholder="Search a planet here!"
         value={search}
       />
-      <CardContainer data={{ ...planetsContext, setPageToGo, pageToGo, loading }}/>
+      <CardsContainer data={{
+        ...planetsContext, setPageToGo, pageToGo, loading,
+      }}
+      />
     </>
-  )
-};
+  );
+}
 
 export default Main;

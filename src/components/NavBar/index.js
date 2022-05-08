@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import Logo from '../../logo.png';
 import Menu from '../../images/menu.svg';
@@ -24,7 +24,7 @@ const StyledNav = styled.header`
     justify-content: space-between;
   }
 
-  .navcontainer--logo {
+  .navcontainer__logo {
     font-size: 18px;
     color: ${(props) => props.theme.colors.primary};
     display: flex;
@@ -35,15 +35,15 @@ const StyledNav = styled.header`
     }
   }
 
-  .navcontainer--items {
+  .navcontainer__items {
     display: none;
   }
 
-  .navcontainer--items-login {
+  .navcontainer__items-login {
     color: ${(props) => props.theme.colors.primary};
   }
 
-  ${props => props.theme.breakpoints.md} {
+  ${(props) => props.theme.breakpoints.md} {
     padding: 8px 70px;
     .navcontainer {
       justify-content: space-between;
@@ -52,7 +52,7 @@ const StyledNav = styled.header`
       }
     }
 
-    .navcontainer--items {
+    .navcontainer__items {
       display: initial;
       > a {
         padding: 8px;
@@ -77,55 +77,56 @@ const StyledMenuMobile = styled.div`
     font-size: 14px;
   }
 `;
- 
-const NavBar = props => {
+
+function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
-  const [isMobile, setIsMobile] = useState(false)
-  
+  const [isMobile, setIsMobile] = useState(false);
+
   const handleShowMenu = () => {
-    setShowMenu(!showMenu)
+    setShowMenu(!showMenu);
     setIsMobile(true);
-  }
+  };
   const handleResize = () => {
     if (window.innerWidth < 770) {
-        setIsMobile(true)
-        setShowMenu(false)
+      setIsMobile(true);
+      setShowMenu(false);
     } else {
-        setIsMobile(false)
-        setShowMenu(false)
+      setIsMobile(false);
+      setShowMenu(false);
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize)
-  })
-
+    window.addEventListener('resize', handleResize);
+  });
 
   return (
     <StyledNav>
-      <div className='navcontainer'>
+      <div className="navcontainer">
         <div>
-          <a href='/' className='navcontainer--logo'>
+          <a href="/" className="navcontainer__logo">
             <span>SWAPI x</span>
-            <img alt='Swapihoum Logo' src={Logo}/>
+            <img alt="Swapihoum Logo" src={Logo} />
           </a>
         </div>
-        <img onClick={handleShowMenu} src={Menu}/>
-        <div className='navcontainer--items'>
-          <a className='navcontainer--items-login' href='/login'><span>Login</span></a>
-          <a href='/faqs'><span>FAQs</span></a>
+        <img alt="Burger menu icon" onClick={handleShowMenu} src={Menu} />
+        <div className="navcontainer__items">
+          <a className="navcontainer__items-login" href="/login"><span>Login</span></a>
+          <a href="/faqs"><span>FAQs</span></a>
         </div>
       </div>
       {
-        (showMenu && isMobile) && 
+        (showMenu && isMobile)
+        && (
         <StyledMenuMobile>
-          <a href='/login'><span>Login</span></a>
-          <hr/>
-          <a href='/faqs'><span>FAQs</span></a>
+          <a href="/login"><span>Login</span></a>
+          <hr />
+          <a href="/faqs"><span>FAQs</span></a>
         </StyledMenuMobile>
+        )
       }
     </StyledNav>
-  )
-};
+  );
+}
 
 export default NavBar;

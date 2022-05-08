@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 import { ReactComponent as NotFoundLogo } from '../../images/warning.svg';
 
@@ -22,13 +22,13 @@ const StyledNotFound = styled.div`
   }
 `;
 
-const SearchBar = ({ message }) => {
+function SearchBar({ message }) {
   return (
     <StyledNotFound>
-      <NotFoundLogo/>
+      <NotFoundLogo />
       <h1>{message}</h1>
     </StyledNotFound>
-  )
-};
+  );
+}
 
 export default SearchBar;

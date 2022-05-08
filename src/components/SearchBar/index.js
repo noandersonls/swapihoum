@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import Search from '../../images/search.svg'
-import Cancel from '../../images/cancel.svg'
+import Search from '../../images/search.svg';
+import Cancel from '../../images/cancel.svg';
 
 const StyledSearch = styled.div`
   padding: 12px 16px;
@@ -42,7 +42,7 @@ const StyledSearch = styled.div`
     }
   }
 
-  .searchbar--label {
+  .searchbar__label {
     display: none;
   }
 
@@ -57,43 +57,44 @@ const StyledSearch = styled.div`
   }
 `;
 
-const SearchBar = ({ onChange, placeholder, value, onSearch }) => {
-
+function SearchBar({
+  onChange, placeholder, value, onSearch,
+}) {
   const handleSearch = () => {
     if (value) {
-      onSearch()
+      onSearch();
     }
-  }
+  };
 
   const handleEnter = (event) => {
     if (event.key === 'Enter') {
-      handleSearch()
+      handleSearch();
     }
-  }
+  };
 
   return (
     <StyledSearch>
-        <div className='container'>
-          <img onClick={handleSearch} src={Search}/>
-          <label 
-            className='searchbar--label'
-            id="input-label"
-          >
-            Swapihoum Search
-          </label>
-          <input
-            onChange={(e) => onChange(e.target.value)}
-            onKeyDown={handleEnter}
-            type="text" 
-            name="searchbar" 
-            id="searchbar" 
-            placeholder={placeholder}
-            value={value}
-          />
-          <img src={Cancel} onClick={() => onChange('')}/>
-        </div>
+      <div className="container">
+        <img alt="Search bar lookup icon" onClick={handleSearch} src={Search} />
+        <label
+          className="searchbar__label"
+          id="input-label"
+        >
+          Swapihoum Search
+        </label>
+        <input
+          onChange={(e) => onChange(e.target.value)}
+          onKeyDown={handleEnter}
+          type="text"
+          name="searchbar"
+          id="searchbar"
+          placeholder={placeholder}
+          value={value}
+        />
+        <img alt="Cross icon for cleaning search text" src={Cancel} onClick={() => onChange('')} />
+      </div>
     </StyledSearch>
-  )
-};
+  );
+}
 
 export default SearchBar;

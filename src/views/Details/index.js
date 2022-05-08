@@ -1,10 +1,10 @@
-import React, { useEffect }from 'react'
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import NavBar from '../../components/NavBar';
 import Showcase from '../../components/Showcase';
 
-const Details = props => {
+function Details(props) {
   const { id } = useParams();
 
   useEffect(() => {
@@ -13,10 +13,10 @@ const Details = props => {
 
   return (
     <>
-      <NavBar/>
-      <Showcase planetId={id}/>
+      <NavBar />
+      <Showcase planetId={id} />
     </>
   );
-};
+}
 
 export default Details;

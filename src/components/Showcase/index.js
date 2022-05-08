@@ -1,13 +1,13 @@
-import React, { useCallback } from 'react'
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import NotFound from '../NotFound';
 import Button from '../Button';
 import Loader from '../Loader';
 
-import Planet from  '../../images/planet.png';
+import Planet from '../../images/planet.png';
 
-import  usePlanet  from '../../hooks/usePlanet'
+import usePlanet from '../../hooks/usePlanet';
 
 const StyledShowcase = styled.div`
   padding-top: 5rem;
@@ -46,34 +46,38 @@ const StyledDetails = styled.div`
     align-items: center;
   }
 
-  .details--title {
+  .details__title {
     text-align: center;
     font-size: 20px;
     font-weight: 300;
   }
 
-  .details--image {
+  .details__image {
     width: 200px;
   }
 
-  .details--separator {
+  .details__separator {
     border: none;
     height: 1px;
     margin: 0;
     flex-shrink: 0;
     background-color: rgba(0, 0, 0, 0.12);
   }
+
+  ${(props) => props.theme.breakpoints.md} {
+    width: 50%;
+    max-width: 500px;
+  }
 `;
 
-
-const Showcase = ({ planetId }) => {
+function Showcase({ planetId }) {
   const navigate = useNavigate();
-  const goHome = useCallback(() => navigate('/', {replace: true}), [navigate]);
-  const { planet, loading} = usePlanet(planetId)
-  
+  const goHome = useCallback(() => navigate('/', { replace: true }), [navigate]);
+  const { planet, loading } = usePlanet(planetId);
+
   const {
-    name, 
-    gravity, 
+    name,
+    gravity,
     orbital_period: orbitalPeriod,
     rotation_period: rotation,
     surface_water: surfaceWater,
@@ -86,34 +90,59 @@ const Showcase = ({ planetId }) => {
 
   return (
     <StyledShowcase>
-      <Button title='Go Back' onClick={goHome}/>
+      <Button title="Go Back" onClick={goHome} />
       <StyledDetails>
-        { loading ? 
-          <Loader/> :
-          (
-            notFound ? <NotFound message='404 - Sorry! This planet was destroyed by the Galactic Empire!'/> :
-            <div className='details'>
-              <div>
-                <h3 className='details--title'>{name}</h3>
-                <img className='details--image' alt={`Planet ${name} from Star Wars`} src={Planet}/>
-                <hr className='details--separator'/>
-              </div>
-              <div>
-                <p>Gravity: {gravity}</p>
-                <p>Climate: {climate}</p>
-                <p>Orbital Period: {orbitalPeriod}</p>
-                <p>Diameter: {diameter}</p>
-                <p>Rotation: {rotation}</p>
-                <p>Surface Water: {surfaceWater}</p>
-                <p>Population: {population}</p>
-                <p>Terrain: {terrain}</p>
-              </div>
-            </div>
-          )
-        }
+        { loading
+          ? <Loader />
+          : (
+            notFound ? <NotFound message="404 - Sorry! This planet was destroyed by the Galactic Empire!" />
+              : (
+                <div className="details">
+                  <div>
+                    <h3 className="details--title">{name}</h3>
+                    <img className="details__image" alt={`Planet ${name} from Star Wars`} src={Planet} />
+                    <hr className="details__separator" />
+                  </div>
+                  <div>
+                    <p>
+                      Gravity:
+                      {gravity}
+                    </p>
+                    <p>
+                      Climate:
+                      {climate}
+                    </p>
+                    <p>
+                      Orbital Period:
+                      {orbitalPeriod}
+                    </p>
+                    <p>
+                      Diameter:
+                      {diameter}
+                    </p>
+                    <p>
+                      Rotation:
+                      {rotation}
+                    </p>
+                    <p>
+                      Surface Water:
+                      {surfaceWater}
+                    </p>
+                    <p>
+                      Population:
+                      {population}
+                    </p>
+                    <p>
+                      Terrain:
+                      {terrain}
+                    </p>
+                  </div>
+                </div>
+              )
+          )}
       </StyledDetails>
     </StyledShowcase>
-  )
-};
+  );
+}
 
 export default Showcase;

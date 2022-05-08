@@ -1,15 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 import NavBar from '../../components/NavBar';
 
 import { ReactComponent as WarningLogo } from '../../images/warning.svg';
 
-
 const StyledFaqs = styled.div`
   margin-top: 6rem;
 
-  .faqs--container {
+  .faqs__container {
     margin: 2rem;
     display: flex;
     flex-direction: column;
@@ -37,28 +36,27 @@ const StyledFaqs = styled.div`
     align-items: center;
     justify-content: center;
 
-    .faqs--container {
+    .faqs__container {
       width: 60%;
       height: auto;
     }
   }
 `;
 
-
-const Faqs = props => {
+function Faqs(props) {
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <StyledFaqs>
-        <div className='faqs--container'>
-          <WarningLogo/>
+        <div className="faqs__container">
+          <WarningLogo />
           <h1>Requerimientos Houm Challenge</h1>
           <h2> - Usar una API pública que te permita obtener una lista de recursos y cada uno de estos recursos tenga variados atributos. Aquí la idea es utilizar una API lo suficientemente compleja para poder mostrar todo tu potencial visualizando información de los recursos en formato de hero cards.</h2>
           <p>
             Decidí utilizar la API de Swapi porque es atractiva, la única desventaja es que no contaba con imágenes para los ejemplos.
             Para más información de Swapi:
           </p>
-          <a href='https://swapi.dev/' target="_blank" rel="noreferer">Swapi Site</a>
+          <a href="https://swapi.dev/" target="_blank" rel="noreferrer">Swapi Site</a>
           <h2> - La aplicación desarrollada debe tener la paleta exacta de colores de Houm.</h2>
           <p>Done!</p>
           <h2> - La información de cada recurso se debe visualizar en hero cards. Cómo organizas los hero cards es decisión tuya.</h2>
@@ -100,7 +98,7 @@ const Faqs = props => {
         </div>
       </StyledFaqs>
     </>
-  )
-};
+  );
+}
 
 export default Faqs;

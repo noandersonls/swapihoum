@@ -78,7 +78,7 @@ const StyledMenuMobile = styled.div`
   }
 `;
 
-function NavBar(props) {
+function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 

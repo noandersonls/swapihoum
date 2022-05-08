@@ -31,8 +31,7 @@ const StyledPaginator = styled.div`
   }
 `;
 
-
-const Paginator = ({ count, onSetPage, prev, next, pageToGo}) => {
+const Paginator = ({ count, onSetPage, prev, next, pageToGo }) => {
   const [ pages, setPages ] = useState([])
   const [ pageSelected, setPageSelected ] = useState(1)
 
@@ -50,7 +49,6 @@ const Paginator = ({ count, onSetPage, prev, next, pageToGo}) => {
   }, [count])
 
   const handlePagination = (value) => {
-    console.log(value)
     const pageId = Number(value.match(/=\s*(.*)$/)[1]);
     setPageSelected(pageId)
     onSetPage(pageId)
@@ -65,7 +63,7 @@ const Paginator = ({ count, onSetPage, prev, next, pageToGo}) => {
             key={number}
             id={number}
             className={'paginator--page ' + (number === pageSelected ? 'paginator--page-active' : null)}
-            onClick={(e) => onSetPage(Number(e.target.id))}
+            onClick={() => onSetPage(+number)}
           >
             {number}
           </div>

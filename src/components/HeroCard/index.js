@@ -93,11 +93,12 @@ const HeroCard = ({onClick, item}) => {
   } = item;
   const planetId = url.split('/')[url.split('/').length-2]; 
 
+
   return (
     <StyledCard onClick={() => onClick(planetId)}>
       <div className='cardcontainer'>
         <div className='cardcontainer--image'>
-          <img alt={`Image of the planet ${name} from Star Wars`} src={Planet}/>
+          <img alt={`Planet ${name} from Star Wars`} src={Planet}/>
         </div>
         <div className='cardcontainer--data'>
           <div>

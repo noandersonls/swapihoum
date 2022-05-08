@@ -95,7 +95,7 @@ const Showcase = ({ planetId }) => {
             <div className='details'>
               <div>
                 <h3 className='details--title'>{name}</h3>
-                <img className='details--image' alt={`Image of the planet ${name} from Star Wars`} src={Planet}/>
+                <img className='details--image' alt={`Planet ${name} from Star Wars`} src={Planet}/>
                 <hr className='details--separator'/>
               </div>
               <div>

@@ -28,7 +28,7 @@ const StyledLogin = styled.div`
   }
 `;
 
-const Login = ({ message }) => {
+const Login = () => {
   return (
     <>
       <NavBar/>

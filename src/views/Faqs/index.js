@@ -1,8 +1,10 @@
 import React from 'react'
-import NavBar from '../../components/NavBar';
-import { ReactComponent as LoginLogo } from '../../images/warning.svg';
-
 import styled from 'styled-components'
+
+import NavBar from '../../components/NavBar';
+
+import { ReactComponent as WarningLogo } from '../../images/warning.svg';
+
 
 const StyledFaqs = styled.div`
   margin-top: 6rem;
@@ -34,6 +36,7 @@ const StyledFaqs = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
     .faqs--container {
       width: 60%;
       height: auto;
@@ -48,7 +51,8 @@ const Faqs = props => {
       <NavBar/>
       <StyledFaqs>
         <div className='faqs--container'>
-          <LoginLogo/><h1>Requerimientos Houm Challenge</h1>
+          <WarningLogo/>
+          <h1>Requerimientos Houm Challenge</h1>
           <h2> - Usar una API pública que te permita obtener una lista de recursos y cada uno de estos recursos tenga variados atributos. Aquí la idea es utilizar una API lo suficientemente compleja para poder mostrar todo tu potencial visualizando información de los recursos en formato de hero cards.</h2>
           <p>
             Decidí utilizar la API de Swapi porque es atractiva, la única desventaja es que no contaba con imágenes para los ejemplos.
@@ -85,7 +89,7 @@ const Faqs = props => {
           <h2> - Se aprecian las funcionalidades extras que muestren tu conocimiento y también se tendrán en consideración para la corrección.</h2>
           <p>:)</p>
           <h2> - Debes desplegar tu página.</h2>
-          <p>GitHub Pages!</p>
+          <p>Vercel FTW!</p>
           <h2> - El código debe tener calidad de producción.</h2>
           <p>
             El repo está organizado siguiendo guidelines de GitFlow y Conventional Commits.

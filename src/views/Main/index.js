@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import NavBar from '../../components/NavBar';
-import CardContainer from '../../components/CardContainer';
+import CardsContainer from '../../components/CardsContainer';
 import SearchBar from '../../components/SearchBar';
 
 import { AppContext } from '../../context';
@@ -26,7 +26,7 @@ const Main = () => {
         placeholder='Search a planet here!'
         value={search}
       />
-      <CardContainer data={{ ...planetsContext, setPageToGo, pageToGo, loading }}/>
+      <CardsContainer data={{ ...planetsContext, setPageToGo, pageToGo, loading }}/>
     </>
   )
 };

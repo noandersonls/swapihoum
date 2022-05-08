@@ -110,7 +110,7 @@ const NavBar = props => {
             <img alt='Swapihoum Logo' src={Logo}/>
           </a>
         </div>
-        <img onClick={handleShowMenu} src={Menu}/>
+        <img alt='Burger menu icon' onClick={handleShowMenu} src={Menu}/>
         <div className='navcontainer__items'>
           <a className='navcontainer__items-login' href='/login'><span>Login</span></a>
           <a href='/faqs'><span>FAQs</span></a>

@@ -5,7 +5,7 @@ Este proyecto fue creado con [Create React App](https://github.com/facebookincub
 Proyecto prueba de lista de planetas utilizando la API Swapi, consta de una vista con planetas mostrados en Hero Cards, un buscador, un paginador que controla las llamadas por páginas a la API y una vista de detalle por cada Hero Card.
 También vistas dummy de prueba como FAQs y Login. 
 
-- Fue construido solamente con React, creando componentes y estilos desde cero con styled-components.
+- Fue construido solamente con React, creando componentes y estilos desde cero con styled-components siguiendo la convención de BEM.
 - Creado con un enfoque Mobile First para asegurar las vistas responsive.
 - Cada componenten cuenta con CSS individual dentro de cada file.
 - Se utilizó Fetch para los HTTP resquest.
@@ -19,11 +19,6 @@ También vistas dummy de prueba como FAQs y Login.
 - Revisar Imports: Librerias, Componentes, Utils
 - WARNING ICON FAQS
 - CHECK UNUSED IMPORTS
-- CONSOLE>LOGS
-- FIX BEM ELEMENTS -- TO __
-- PAGINATOR to VIEW
-- CARDCONTAINER TO CARDSCONTAINER
-- FIX ALL IMG ALTS
 - REACT HELMET
 ---
 

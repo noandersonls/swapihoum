@@ -74,7 +74,7 @@ const SearchBar = ({ onChange, placeholder, value, onSearch }) => {
   return (
     <StyledSearch>
         <div className='container'>
-          <img onClick={handleSearch} src={Search}/>
+          <img alt='Search bar lookup icon' onClick={handleSearch} src={Search}/>
           <label 
             className='searchbar__label'
             id="input-label"
@@ -90,7 +90,7 @@ const SearchBar = ({ onChange, placeholder, value, onSearch }) => {
             placeholder={placeholder}
             value={value}
           />
-          <img src={Cancel} onClick={() => onChange('')}/>
+          <img alt='Cross icon for cleaning search text' src={Cancel} onClick={() => onChange('')}/>
         </div>
     </StyledSearch>
   )

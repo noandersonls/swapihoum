@@ -58,7 +58,7 @@ const Faqs = props => {
             Decidí utilizar la API de Swapi porque es atractiva, la única desventaja es que no contaba con imágenes para los ejemplos.
             Para más información de Swapi:
           </p>
-          <a href='https://swapi.dev/' target="_blank" rel="noreferer">Swapi Site</a>
+          <a href='https://swapi.dev/' target="_blank" rel="noreferrer">Swapi Site</a>
           <h2> - La aplicación desarrollada debe tener la paleta exacta de colores de Houm.</h2>
           <p>Done!</p>
           <h2> - La información de cada recurso se debe visualizar en hero cards. Cómo organizas los hero cards es decisión tuya.</h2>

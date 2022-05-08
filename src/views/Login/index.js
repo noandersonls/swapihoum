@@ -11,10 +11,11 @@ const StyledLogin = styled.div`
   align-items: center;
   flex-direction: column;
   padding-top: 5rem;
+  margin-top: 2rem;
 
   > svg {
-    width: 50%;
-    height: 7rem;
+    width: 4rem;
+    height: auto;
   }
 
   > span {

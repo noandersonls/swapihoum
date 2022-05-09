@@ -56,12 +56,28 @@ const StyledDetails = styled.div`
     width: 200px;
   }
 
+  .details__description {
+    width: 100%;
+    padding: 12px;
+  }
+
   .details__separator {
     border: none;
     height: 1px;
     margin: 0;
     flex-shrink: 0;
     background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .details__separator--tag {
+    width: fit-content;
+    border: 1px solid;
+    display: flex;
+    padding: 4.8px 8px;
+    align-items: center;
+    border-radius: 100px;
+    border-color: rgb(236, 239, 241);
+    background-color: ${(props) => props.theme.colors.tag};
   }
 
   ${(props) => props.theme.breakpoints.md} {
@@ -99,12 +115,12 @@ function Showcase({ planetId }) {
               : (
                 <div className="details">
                   <div>
-                    <h3 className="details--title">{name}</h3>
+                    <h1 className="details__title">{name}</h1>
                     <img className="details__image" alt={`Planet ${name} from Star Wars`} src={Planet} />
                     <hr className="details__separator" />
                   </div>
-                  <div>
-                    <p>
+                  <div className="details__description">
+                    <p className="details__separator--tag">
                       Gravity:
                       {gravity}
                     </p>

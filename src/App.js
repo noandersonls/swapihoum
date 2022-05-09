@@ -18,6 +18,8 @@ function App() {
       <AppProvider>
         <Helmet>
           <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" property="description" content="Find your favourite planets in the Star Wars universe" />
           <title>Swapihoum site - Part of Houm.cl</title>
         </Helmet>
         <Routes>

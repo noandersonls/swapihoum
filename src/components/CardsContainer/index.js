@@ -30,7 +30,8 @@ const StyledCardsContainer = styled.div`
   }
   
   ${(props) => props.theme.breakpoints.md} {
-
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 `;
 

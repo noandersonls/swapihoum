@@ -20,7 +20,7 @@ También vistas dummy de prueba como FAQs y Login.
 ## TO - DO:
 - Every component styles has media queries in order to extend the responsive design.
 - Paginator Component: To handle pages maximum to show.
-- Add more tests.
+- Add more tests and tests utils (render, context, etc)
 ---
 
 ### Organización

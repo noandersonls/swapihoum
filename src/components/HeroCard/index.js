@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Planet from '../../images/planet.png';
 import Population from '../../images/population.svg';
+import Diameter from '../../images/diameter.svg';
 
 const StyledCard = styled.div`
   cursor: pointer;
@@ -60,6 +61,18 @@ const StyledCard = styled.div`
     padding: 1rem;
   }
 
+  .cardcontainer__data--tag {
+    width: fit-content;
+    border: 1px solid;
+    display: flex;
+    padding: 4px 8px;
+    margin: 0;
+    align-items: center;
+    border-radius: 100px;
+    border-color: rgb(236, 239, 241);
+    background-color: ${(props) => props.theme.colors.tag};
+  }
+
   .cardcontainer__separator {
     border: none;
     height: 1px;
@@ -72,6 +85,11 @@ const StyledCard = styled.div`
   .cardcontainer__footer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    > span {
+      display: flex;
+      align-items: center;
+    }
   }
 
 
@@ -102,9 +120,10 @@ function HeroCard({ onClick, item }) {
           <div>
             <h3>
               Name:
+              {' '}
               {name}
             </h3>
-            <h4>
+            <h4 className="cardcontainer__data--tag">
               Gravity:
               {gravity}
             </h4>
@@ -117,15 +136,19 @@ function HeroCard({ onClick, item }) {
               {orbitalPeriod}
             </p>
             <p>
-              Diameter:
+              Diameter Example:
               {diameter}
             </p>
           </div>
           <hr className="cardcontainer__separator" />
           <div className="cardcontainer__footer">
-            <img alt="population icon" src={Population} />
             <span>
-              {' '}
+              <img alt="diameter rule icon" src={Diameter} />
+              Diameter:
+              {diameter}
+            </span>
+            <span>
+              <img alt="population icon" src={Population} />
               Population:
               {population}
             </span>
